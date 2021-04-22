@@ -5,12 +5,18 @@
 
 
 void
-Verlet::compute_e_field(void) {
-	Bead *beads = vars->beads.data();
-	const int num_bead = vars->beads.size();
+Verlet :: compute_e_field_simple ( void ) {
+	for ( auto &a : vars->beads ) {
+		a.fz += Vcoeff_simple*400;
+	}
+}
 
-	for (auto &a : vars->beads) {
-		a.fz += Vcoeff;
+
+
+void
+Verlet :: compute_e_field ( void ) {
+	for ( auto &a : vars->beads ) {
+		a.fz += Vcoeff_simple;
 	}
 }
 
